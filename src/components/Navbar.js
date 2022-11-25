@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../logo.png";
-import { FiMenu } from "react-icons/fi";
 
 const Navbar = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -58,9 +57,6 @@ const Navbar = () => {
       );
     } else {
       return (
-        // <button className="flex items-center">
-        //   <FiMenu className="text-white text-3xl text-center" />
-        // </button>
         <nav>
           <section className="MOBILE-MENU flex lg:hidden">
             <div
@@ -154,18 +150,14 @@ const Navbar = () => {
   };
 
   return (
-    <div className="py-2 bg-black">
+    <div className="py-2 bg-black/50">
       <div className="grid grid-cols-3 sm:grid-cols-2 sm:place-items-center">
         {width < 640 && (
           <div className="pl-6 self-center">{changeDisplay()}</div>
         )}
         <div className="justify-self-center sm:justify-self-start sm:pl-8">
           <Link to="/">
-            <img
-              className="w-20 bg-white xxs:w-16"
-              src={logo}
-              alt="site logo"
-            />
+            <img className="w-20 xxs:w-16" src={logo} alt="site logo" />
           </Link>
         </div>
 
