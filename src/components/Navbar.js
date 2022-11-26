@@ -153,7 +153,7 @@ const Navbar = () => {
     <div className="py-2 bg-black/50">
       <div className="grid grid-cols-3 sm:grid-cols-2 sm:place-items-center">
         {width < 640 && (
-          <div className="pl-6 self-center">{changeDisplay()}</div>
+          <div className="pl-6 self-center z-50">{changeDisplay()}</div>
         )}
         <div className="justify-self-center sm:justify-self-start sm:pl-8">
           <Link to="/">
