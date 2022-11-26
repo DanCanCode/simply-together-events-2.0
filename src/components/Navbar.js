@@ -174,7 +174,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="py-2 bg-black">
+    <div className="py-2 bg-black sticky top-0 z-50">
       <div className="grid grid-cols-3 sm:grid-cols-2 sm:place-items-center">
         {width < 640 && (
           <div className="pl-6 self-center z-50">{changeDisplay()}</div>
