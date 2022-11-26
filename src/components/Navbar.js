@@ -19,37 +19,37 @@ const Navbar = () => {
         <>
           <NavLink
             to="/"
-            className="text-white mx-3 xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
+            className="text-white hover:text-[#da0041] mx-3 tracking-wide xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
           >
             HOME
           </NavLink>
           <NavLink
             to="/about"
-            className="text-white mx-3 xxs:text-sm  xxs:mx-1.5 xs:text-sm xs:mx-2"
+            className="text-white hover:text-[#da0041] mx-3 tracking-wide xxs:text-sm  xxs:mx-1.5 xs:text-sm xs:mx-2"
           >
             ABOUT
           </NavLink>
           <NavLink
             to="/services"
-            className="text-white mx-3 xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
+            className="text-white hover:text-[#da0041] mx-3 tracking-wide xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
           >
             SERVICES
           </NavLink>
           <NavLink
             to="/gallery"
-            className="text-white mx-3 xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
+            className="text-white hover:text-[#da0041] mx-3 tracking-wide xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
           >
             GALLERY
           </NavLink>
           <NavLink
             to="/collaboration"
-            className="text-white mx-3 xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
+            className="text-white hover:text-[#da0041] mx-3 tracking-wide xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
           >
             COLLABORATION
           </NavLink>
           <NavLink
             to="/contact"
-            className="text-white mx-3 xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
+            className="text-white hover:text-[#da0041] mx-3 tracking-wide xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
           >
             CONTACT
           </NavLink>
@@ -60,16 +60,20 @@ const Navbar = () => {
         <nav>
           <section className="MOBILE-MENU flex lg:hidden">
             <div
-              className="HAMBURGER-ICON space-y-2 cursor-pointer"
+              className="HAMBURGER-ICON space-y-2 cursor-pointer group"
               onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
             >
-              <span className="block h-0.5 w-8 bg-white"></span>
-              <span className="block h-0.5 w-8 bg-white"></span>
-              <span className="block h-0.5 w-8 bg-white"></span>
+              <span className="block h-0.5 w-8 bg-white group-hover:bg-[#da0041]"></span>
+              <span className="block h-0.5 w-8 bg-white group-hover:bg-[#da0041]"></span>
+              <span className="block h-0.5 w-8 bg-white group-hover:bg-[#da0041]"></span>
             </div>
 
             {isNavOpen && (
-              <div className={`${isNavOpen ? "showMenuNav" : "hideMenuNav"}`}>
+              <div
+                className={`${
+                  isNavOpen ? "showMenuNav" : "hideMenuNav"
+                } animate-navslide`}
+              >
                 <div
                   className="CROSS-ICON absolute top-0 right-0 px-8 py-8 cursor-pointer"
                   onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
@@ -150,14 +154,14 @@ const Navbar = () => {
   };
 
   return (
-    <div className="py-2 bg-black/50">
+    <div className="py-2 bg-black">
       <div className="grid grid-cols-3 sm:grid-cols-2 sm:place-items-center">
         {width < 640 && (
           <div className="pl-6 self-center z-50">{changeDisplay()}</div>
         )}
         <div className="justify-self-center sm:justify-self-start sm:pl-8">
           <Link to="/">
-            <img className="w-20 xxs:w-16" src={logo} alt="site logo" />
+            <img className=" w-20 xxs:w-16" src={logo} alt="site logo" />
           </Link>
         </div>
 

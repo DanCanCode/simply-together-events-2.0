@@ -14,32 +14,32 @@ const Homepage = () => {
       <div className="relative overflow-hidden h-[65vh] mt-12">
         <div className="relative flex items-center max-w-full h-4/6">
           <img
-            className="relative top-14 left-0 w-80 object-cover"
+            className="animate-slideup  relative top-14 left-0 w-80 object-cover"
             src={photo0}
             alt="ste1"
           />
           <img
-            className="relative w-60 top-8 right-10 z-20 object-cover"
+            className="animate-slidedown  relative w-60 top-8 right-10 z-20 object-cover"
             src={photo1}
             alt="ste2"
           />
           <img
-            className="relative w-56 top-32 right-16 z-10 object-cover"
+            className="animate-slideup  relative w-56 top-32 right-16 z-10 object-cover"
             src={photo2}
             alt="ste3"
           />
           <img
-            className="relative w-96 object-cover top-16 right-32"
+            className="animate-slidedown  relative w-96 object-cover top-16 right-32"
             src={photo3}
             alt="ste4"
           />
           <img
-            className="w-64  object-cover relative z-10 top-20 right-40"
+            className="w-64 animate-slideup  object-cover relative z-10 top-20 right-40"
             src={photo4}
             alt="ste5"
           />
           <img
-            className="w-64 object-cover relative top-4 right-56"
+            className="w-64 animate-slidedown  object-cover relative top-4 right-56"
             src={photo5}
             alt="ste6"
           />
@@ -52,13 +52,13 @@ const Homepage = () => {
         />
       </div>
 
-      <div className="text-center mt-4">
-        <p>
+      <div className="text-center mt-4 animate-fadein">
+        <p className="font-normal text-2xl">
           simply bringing everyone together the most beautiful way we know how.
         </p>
         <Link
           to="/services"
-          className="mt-4 static p-3 bg-red-800 inline-block text-white rounded-md"
+          className="font-medium mt-4 static p-3 bg-[#A4133C] hover:bg-[#800F2F] active:scale-90 inline-block text-white rounded-md"
         >
           learn more
         </Link>
