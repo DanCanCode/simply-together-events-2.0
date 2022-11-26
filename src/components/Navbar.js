@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { FaInstagram, FaPinterest } from "react-icons/fa";
 import logo from "../logo.png";
 
 const Navbar = () => {
@@ -16,7 +17,7 @@ const Navbar = () => {
   const changeDisplay = () => {
     if (width >= 640) {
       return (
-        <>
+        <div className="flex items-center">
           <NavLink
             to="/"
             className="text-white hover:text-[#da0041] mx-3 tracking-wide xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
@@ -53,7 +54,26 @@ const Navbar = () => {
           >
             CONTACT
           </NavLink>
-        </>
+
+          <span className="border-r-2 border-white mx-2"></span>
+
+          <a
+            href="https://www.instagram.com/simplytogether.e/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-[#da0041] mr-2"
+          >
+            {<FaInstagram className="text-xl" />}
+          </a>
+          <a
+            href="https://www.pinterest.com/simplytogetherevents/_created/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-[#da0041]"
+          >
+            {<FaPinterest className="text-xl" />}
+          </a>
+        </div>
       );
     } else {
       return (
