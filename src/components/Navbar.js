@@ -17,7 +17,7 @@ const Navbar = () => {
   const changeDisplay = () => {
     if (width >= 640) {
       return (
-        <div className="flex items-center">
+        <nav className="flex items-center">
           <NavLink
             to="/"
             className="text-white hover:text-[#da0041] mx-3 tracking-wide xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
@@ -63,7 +63,7 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className="text-white hover:text-[#da0041] mr-2"
           >
-            {<FaInstagram className="text-xl" />}
+            <FaInstagram className="text-xl" />
           </a>
           <a
             href="https://www.pinterest.com/simplytogetherevents/_created/"
@@ -71,9 +71,9 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className="text-white hover:text-[#da0041]"
           >
-            {<FaPinterest className="text-xl" />}
+            <FaPinterest className="text-xl" />
           </a>
-        </div>
+        </nav>
       );
     } else {
       return (

@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./Homepage/Homepage";
 import Services from "./Services/Services";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route exact path="/" element={<Homepage />} />
         <Route exact path="/services" element={<Services />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
