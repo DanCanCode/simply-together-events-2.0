@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaInstagram, FaPinterest } from "react-icons/fa";
-import logo from "../logo.png";
+import logo from "./logo.png";
 
 const Navbar = () => {
   const [width, setWidth] = useState(window.innerWidth);

@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import PrivateRoute from "./PrivateRoute";
-import Homepage from "./Homepage";
+import Homepage from "./Homepage/Homepage";
+import Services from "./Services/Services";
 import Navbar from "./Navbar";
 
 const App = () => {
@@ -10,6 +11,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Homepage />} />
+        <Route exact path="/services" element={<Services />} />
       </Routes>
     </BrowserRouter>
   );
