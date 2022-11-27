@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FaInstagram, FaPinterest } from "react-icons/fa";
+import { FaInstagram, FaPinterest, FaEnvelope } from "react-icons/fa";
 import logo from "./logo.png";
 
 const Navbar = () => {
@@ -81,7 +81,7 @@ const Navbar = () => {
     } else {
       return (
         <nav>
-          <section className="MOBILE-MENU flex lg:hidden">
+          <section className="MOBILE-MENU">
             <div
               className="HAMBURGER-ICON space-y-2 cursor-pointer group"
               onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
@@ -102,7 +102,7 @@ const Navbar = () => {
                   onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
                 >
                   <svg
-                    className="h-8 w-8 text-gray-600"
+                    className="h-8 w-8 text-[#FFF0F3]"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -115,26 +115,53 @@ const Navbar = () => {
                   </svg>
                 </div>
 
-                <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[150px]">
-                  <li className="">
-                    <NavLink to="/">HOME</NavLink>
-                  </li>
-                  <li className="">
-                    <NavLink to="/about">ABOUT</NavLink>
-                  </li>
-                  <li className="">
-                    <NavLink to="/services">SERVICES</NavLink>
-                  </li>
-                  <li className="">
-                    <NavLink to="/gallery">GALLERY</NavLink>
-                  </li>
-                  <li className="">
-                    <NavLink to="/collaboration">COLLABORATION</NavLink>
-                  </li>
-                  <li className="">
-                    <NavLink to="/contact">CONTACT</NavLink>
-                  </li>
-                </ul>
+                <div className="MENU-LINK-MOBILE-OPEN flex flex-col items-start gap-5  mt-24 ml-8 truncate">
+                  <NavLink
+                    to="/"
+                    className="font-medium tracking-wider text-2xl text-[#FFF0F3]"
+                  >
+                    HOME
+                  </NavLink>
+
+                  <NavLink
+                    to="/about"
+                    className="font-medium tracking-wider text-2xl text-[#FFF0F3]"
+                  >
+                    ABOUT
+                  </NavLink>
+
+                  <NavLink
+                    to="/services"
+                    className="font-medium tracking-wider text-2xl text-[#FFF0F3]"
+                  >
+                    SERVICES
+                  </NavLink>
+
+                  <NavLink
+                    to="/gallery"
+                    className="font-medium tracking-wider text-2xl text-[#FFF0F3]"
+                  >
+                    GALLERY
+                  </NavLink>
+
+                  <NavLink
+                    to="/collaboration"
+                    className="font-medium tracking-wider text-2xl text-[#FFF0F3]"
+                  >
+                    COLLABORATION
+                  </NavLink>
+
+                  <NavLink
+                    to="/contact"
+                    className="font-medium tracking-wider text-2xl text-[#FFF0F3]"
+                  >
+                    CONTACT
+                  </NavLink>
+                </div>
+
+                <div className="absolute bottom-3 left-[40%]">
+                  <img className="w-16" src={logo} alt="site logo" />
+                </div>
               </div>
             )}
             {isNavOpen && <div className="navBlur"></div>}
@@ -159,17 +186,13 @@ const Navbar = () => {
 
             .showMenuNav {
                 display: block;
-                background-color: white;
+                background-color: #800F2F;
                 position: absolute;
-                width: 70%;
+                width: 80%;
                 height: 100vh;
                 top: 0;
                 left: 0;
                 z-index: 10;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-                align-items: center;
             `}</style>
         </nav>
       );
@@ -177,7 +200,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="py-2 bg-black sticky top-0 z-50">
+    <header className="py-2 bg-black sticky top-0 z-50">
       <div className="grid grid-cols-3 sm:grid-cols-2 sm:place-items-center">
         {width < 640 && (
           <div className="pl-6 self-center">{changeDisplay()}</div>
@@ -194,7 +217,7 @@ const Navbar = () => {
           </div>
         )}
       </div>
-    </div>
+    </header>
   );
 };
 
