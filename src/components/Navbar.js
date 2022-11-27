@@ -17,62 +17,65 @@ const Navbar = () => {
   const changeDisplay = () => {
     if (width >= 640) {
       return (
-        <nav className="flex items-center">
+        <nav className="flex items-center gap-3 lg:gap-4">
           <NavLink
             to="/"
-            className="text-white hover:text-[#da0041] mx-3 tracking-wide xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
+            className="text-white hover:text-[#da0041] tracking-wide text-sm lg:text-base"
           >
             HOME
           </NavLink>
           <NavLink
             to="/about"
-            className="text-white hover:text-[#da0041] mx-3 tracking-wide xxs:text-sm  xxs:mx-1.5 xs:text-sm xs:mx-2"
+            className="text-white hover:text-[#da0041] tracking-wide text-sm lg:text-base"
           >
             ABOUT
           </NavLink>
           <NavLink
             to="/services"
-            className="text-white hover:text-[#da0041] mx-3 tracking-wide xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
+            className="text-white hover:text-[#da0041] tracking-wide text-sm lg:text-base"
           >
             SERVICES
           </NavLink>
           <NavLink
             to="/gallery"
-            className="text-white hover:text-[#da0041] mx-3 tracking-wide xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
+            className="text-white hover:text-[#da0041] tracking-wide text-sm lg:text-base"
           >
             GALLERY
           </NavLink>
           <NavLink
             to="/collaboration"
-            className="text-white hover:text-[#da0041] mx-3 tracking-wide xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
+            className="text-white hover:text-[#da0041] tracking-wide text-sm lg:text-base"
           >
             COLLABORATION
           </NavLink>
           <NavLink
             to="/contact"
-            className="text-white hover:text-[#da0041] mx-3 tracking-wide xxs:text-sm xxs:mx-1.5 xs:text-sm xs:mx-2"
+            className="text-white hover:text-[#da0041] tracking-wide text-sm lg:text-base"
           >
             CONTACT
           </NavLink>
 
-          <span className="border-r-2 border-white mx-2"></span>
-
-          <a
-            href="https://www.instagram.com/simplytogether.e/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:text-[#da0041] mr-2"
-          >
-            <FaInstagram className="text-xl" />
-          </a>
-          <a
-            href="https://www.pinterest.com/simplytogetherevents/_created/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:text-[#da0041]"
-          >
-            <FaPinterest className="text-xl" />
-          </a>
+          {width > 750 && (
+            <>
+              <span className="border-r-[1px] border-white mx-2 h-8"></span>
+              <a
+                href="https://www.instagram.com/simplytogether.e/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-[#da0041]"
+              >
+                <FaInstagram className="text-lg lg:text-xl" />
+              </a>
+              <a
+                href="https://www.pinterest.com/simplytogetherevents/_created/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-[#da0041]"
+              >
+                <FaPinterest className="text-lg lg:text-xl" />
+              </a>
+            </>
+          )}
         </nav>
       );
     } else {
@@ -177,11 +180,11 @@ const Navbar = () => {
     <div className="py-2 bg-black sticky top-0 z-50">
       <div className="grid grid-cols-3 sm:grid-cols-2 sm:place-items-center">
         {width < 640 && (
-          <div className="pl-6 self-center z-50">{changeDisplay()}</div>
+          <div className="pl-6 self-center">{changeDisplay()}</div>
         )}
         <div className="justify-self-center sm:justify-self-start sm:pl-8">
           <Link to="/">
-            <img className=" w-20 xxs:w-16" src={logo} alt="site logo" />
+            <img className="lg:w-20 w-16" src={logo} alt="site logo" />
           </Link>
         </div>
 
