@@ -95,7 +95,7 @@ const Navbar = () => {
               <div
                 className={`${
                   isNavOpen ? "showMenuNav" : "hideMenuNav"
-                } animate-navslide`}
+                } animate-navslide bg-gradient-to-b from-[#800F2F] to-[#FF8FA3]`}
               >
                 <div
                   className="CROSS-ICON absolute top-0 right-0 px-8 py-8 cursor-pointer"
@@ -119,6 +119,7 @@ const Navbar = () => {
                   <NavLink
                     to="/"
                     className="font-medium tracking-wider text-2xl text-[#FFF0F3]"
+                    onClick={() => setIsNavOpen(false)}
                   >
                     HOME
                   </NavLink>
@@ -126,6 +127,7 @@ const Navbar = () => {
                   <NavLink
                     to="/about"
                     className="font-medium tracking-wider text-2xl text-[#FFF0F3]"
+                    onClick={() => setIsNavOpen(false)}
                   >
                     ABOUT
                   </NavLink>
@@ -133,6 +135,7 @@ const Navbar = () => {
                   <NavLink
                     to="/services"
                     className="font-medium tracking-wider text-2xl text-[#FFF0F3]"
+                    onClick={() => setIsNavOpen(false)}
                   >
                     SERVICES
                   </NavLink>
@@ -140,6 +143,7 @@ const Navbar = () => {
                   <NavLink
                     to="/gallery"
                     className="font-medium tracking-wider text-2xl text-[#FFF0F3]"
+                    onClick={() => setIsNavOpen(false)}
                   >
                     GALLERY
                   </NavLink>
@@ -147,6 +151,7 @@ const Navbar = () => {
                   <NavLink
                     to="/collaboration"
                     className="font-medium tracking-wider text-2xl text-[#FFF0F3]"
+                    onClick={() => setIsNavOpen(false)}
                   >
                     COLLABORATION
                   </NavLink>
@@ -154,6 +159,7 @@ const Navbar = () => {
                   <NavLink
                     to="/contact"
                     className="font-medium tracking-wider text-2xl text-[#FFF0F3]"
+                    onClick={() => setIsNavOpen(false)}
                   >
                     CONTACT
                   </NavLink>
@@ -186,7 +192,7 @@ const Navbar = () => {
 
             .showMenuNav {
                 display: block;
-                background-color: #800F2F;
+               
                 position: absolute;
                 width: 80%;
                 height: 100vh;

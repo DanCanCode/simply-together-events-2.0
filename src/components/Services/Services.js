@@ -14,7 +14,7 @@ const Services = () => {
         <img
           src={headText}
           alt="services"
-          className="animate-fadein sm:w-72 w-56"
+          className="animate-[fadein_2s_ease_1] sm:w-72 w-56"
         />
 
         <nav className="flex flex-wrap gap-2 sm:gap-3 items-center justify-center text-center">
@@ -51,12 +51,12 @@ const Services = () => {
         </nav>
       </header>
 
-      <section className="grid grid-cols-1 gap-16 mt-16 overflow-hidden">
-        <article id="eventDesgin" className="flex gap-10">
+      <section className="grid grid-cols-1 gap-20 my-16 place-items-center overflow-hidden">
+        <article id="eventDesgin" className="flex gap-10 justify-center">
           <img src={servicePhoto0} alt="event design" className="w-80"></img>
 
-          <div className="max-h-96 w-5/12 overflow-y-auto overscroll-contain grid grid-cols-1 gap-4">
-            <h2 className="text-lg">Event Design</h2>
+          <div className="max-h-96 w-5/12 overflow-y-auto overscroll-contain flex flex-col gap-4">
+            <h2 className="text-xl tracking-wide">Event Design</h2>
             <p>
               For any event you are having, we will brainstorm together that
               vision of yours and bring it to life. This is one of the most fun
@@ -74,11 +74,14 @@ const Services = () => {
           </div>
         </article>
 
-        <article id="eventPlanning" className="flex gap-10">
+        <article
+          id="eventPlanning"
+          className="flex flex-row-reverse gap-10 justify-center"
+        >
           <img src={servicePhoto1} alt="event planning" className="w-80"></img>
 
-          <div className="max-h-96 w-5/12 overflow-y-auto overscroll-contain grid grid-cols-1 gap-4">
-            <h2 className="text-lg">Event Planning</h2>
+          <div className="max-h-96 w-5/12 overflow-y-auto overscroll-contain flex flex-col gap-4">
+            <h2 className="text-xl tracking-wide">Event Planning</h2>
 
             <p>
               We offer full service planning for any event you may have. From an
@@ -102,15 +105,15 @@ const Services = () => {
           </div>
         </article>
 
-        <article id="eventCreation" className="flex gap-10">
+        <article id="eventCreation" className="flex gap-10 justify-center">
           <div className="overflow-hidden w-80">
             <video autoPlay muted loop className="object-cover object-center">
               <source src={serviceVideo2} type="video/mp4" />
             </video>
           </div>
 
-          <div className="max-h-96 w-5/12 overflow-y-auto overscroll-contain grid grid-cols-1 gap-4">
-            <h2 className="text-lg">Event Creation</h2>
+          <div className="max-h-96 w-5/12 overflow-y-auto overscroll-contain flex flex-col gap-4">
+            <h2 className="text-xl tracking-wide">Event Creation</h2>
 
             <p>
               After any special event, do you ever wish you could have some of
@@ -123,10 +126,10 @@ const Services = () => {
               moments on your honeymoon and reminisce on the night even sooner.
             </p>
 
-            <div>
+            <div className="mt-2">
               <Link
                 to="/contact"
-                className="font-medium p-3  bg-[#A4133C] hover:bg-[#800F2F] active:scale-90  text-white rounded-md"
+                className="font-medium p-3 bg-[#A4133C] hover:bg-[#800F2F] active:scale-90  text-white rounded-md"
               >
                 contact for pricing
               </Link>
@@ -134,11 +137,14 @@ const Services = () => {
           </div>
         </article>
 
-        <article id="luxuryPicnics" className="flex gap-10">
+        <article
+          id="luxuryPicnics"
+          className="flex gap-10 flex-row-reverse justify-center"
+        >
           <img src={servicePhoto3} alt="luxury picnics" className="w-80"></img>
 
-          <div className="max-h-96 w-5/12 overflow-y-auto overscroll-contain grid grid-cols-1 gap-4">
-            <h2 className="text-lg">Luxury Picnics</h2>
+          <div className="max-h-96 w-5/12 overflow-y-auto overscroll-contain flex flex-col gap-4">
+            <h2 className="text-xl tracking-wide">Luxury Picnics</h2>
 
             <p>
               Perfect for any birthday party, bridal shower, engagement, or any
@@ -147,7 +153,7 @@ const Services = () => {
               work alongside you to create a luxury picnic to a color scheme and
               theme of your choice.
             </p>
-            <div>
+            <div className="mt-2">
               <Link
                 to="/"
                 className="font-medium p-3  bg-[#A4133C] hover:bg-[#800F2F] active:scale-90  text-white rounded-md"
@@ -158,12 +164,11 @@ const Services = () => {
           </div>
         </article>
 
-        <article id="partyRentals" className="flex gap-10">
+        <article id="partyRentals" className="flex gap-10 justify-center">
           <img src={servicePhoto4} alt="party rentals" className="w-80"></img>
 
-          <div className="max-h-96 w-5/12 overflow-y-auto overscroll-contain grid grid-cols-1 gap-4">
-            <h2 className="text-lg">Party Rentals</h2>
-
+          <div className="max-h-96 w-5/12 overflow-y-auto overscroll-contain flex flex-col gap-4">
+            <h2 className="text-xl tracking-wide">Party Rentals</h2>
             <p>
               Looking for a backdrop, welcome sign, or some last minute decor to
               bring your event alive? Check out our gallery below to view
@@ -171,8 +176,10 @@ const Services = () => {
               will rent out the item to you with full delivery*, set-up*, and
               clean-up*.
             </p>
-            <p>*additonal fee applied after inquiry. fee based on location.</p>
-            <div>
+            <p className="opacity-60 text-sm">
+              *additonal fees applied after inquiry. fees based on location.
+            </p>
+            <div className="mt-2">
               <Link
                 to="/party-rentals"
                 className="font-medium p-3 bg-[#A4133C] hover:bg-[#800F2F] active:scale-90  text-white rounded-md"
