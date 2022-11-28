@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import headText from "./services.png";
 import servicePhoto0 from "./servicePhoto0.jpg";
@@ -8,6 +8,35 @@ import servicePhoto3 from "./servicePhoto3.jpg";
 import servicePhoto4 from "./servicePhoto4.jpg";
 
 const Services = () => {
+  useEffect(() => {
+    const targets = document.querySelectorAll(".SLIDE-IN");
+    let options = {
+      rootMargin: "0px",
+      threshold: 0.25,
+    };
+
+    let callback = (entries) => {
+      entries.forEach((entry, index) => {
+        let target = entry.target;
+
+        if (entry.intersectionRatio >= 0.25) {
+          if (target.classList.contains("SLIDE-REVERSE")) {
+            target.classList.add("animate-slideinRight");
+            target.classList.remove("opacity-0");
+          } else {
+            target.classList.add("animate-slideinLeft");
+            target.classList.remove("opacity-0");
+          }
+        }
+      });
+    };
+
+    let observer = new IntersectionObserver(callback, options);
+    targets.forEach((target, index) => {
+      observer.observe(target);
+    });
+  }, []);
+
   return (
     <main>
       <header className="grid grid-cols-1 gap-3 place-items-center mt-10 mx-12">
@@ -51,9 +80,16 @@ const Services = () => {
         </nav>
       </header>
 
-      <section className="grid grid-cols-1 gap-20 my-16 place-items-center overflow-hidden">
+      <section
+        id="SERVICE_VIEW"
+        className="grid grid-cols-1 gap-24 my-16 place-items-center overflow-hidden"
+      >
         <article id="eventDesgin" className="flex gap-10 justify-center">
-          <img src={servicePhoto0} alt="event design" className="w-80"></img>
+          <img
+            src={servicePhoto0}
+            alt="event design"
+            className="SLIDE-IN w-80 opacity-0"
+          ></img>
 
           <div className="max-h-96 w-5/12 overflow-y-auto overscroll-contain flex flex-col gap-4">
             <h2 className="text-xl tracking-wide">Event Design</h2>
@@ -78,7 +114,11 @@ const Services = () => {
           id="eventPlanning"
           className="flex flex-row-reverse gap-10 justify-center"
         >
-          <img src={servicePhoto1} alt="event planning" className="w-80"></img>
+          <img
+            src={servicePhoto1}
+            alt="event planning"
+            className="SLIDE-IN SLIDE-REVERSE w-80 opacity-0"
+          ></img>
 
           <div className="max-h-96 w-5/12 overflow-y-auto overscroll-contain flex flex-col gap-4">
             <h2 className="text-xl tracking-wide">Event Planning</h2>
@@ -107,7 +147,12 @@ const Services = () => {
 
         <article id="eventCreation" className="flex gap-10 justify-center">
           <div className="overflow-hidden w-80">
-            <video autoPlay muted loop className="object-cover object-center">
+            <video
+              autoPlay
+              muted
+              loop
+              className="SLIDE-IN object-cover object-center opacity-0"
+            >
               <source src={serviceVideo2} type="video/mp4" />
             </video>
           </div>
@@ -141,7 +186,11 @@ const Services = () => {
           id="luxuryPicnics"
           className="flex gap-10 flex-row-reverse justify-center"
         >
-          <img src={servicePhoto3} alt="luxury picnics" className="w-80"></img>
+          <img
+            src={servicePhoto3}
+            alt="luxury picnics"
+            className="SLIDE-IN SLIDE-REVERSE w-80 opacity-0"
+          ></img>
 
           <div className="max-h-96 w-5/12 overflow-y-auto overscroll-contain flex flex-col gap-4">
             <h2 className="text-xl tracking-wide">Luxury Picnics</h2>
@@ -165,7 +214,11 @@ const Services = () => {
         </article>
 
         <article id="partyRentals" className="flex gap-10 justify-center">
-          <img src={servicePhoto4} alt="party rentals" className="w-80"></img>
+          <img
+            src={servicePhoto4}
+            alt="party rentals"
+            className="SLIDE-IN w-80 opacity-0"
+          ></img>
 
           <div className="max-h-96 w-5/12 overflow-y-auto overscroll-contain flex flex-col gap-4">
             <h2 className="text-xl tracking-wide">Party Rentals</h2>
