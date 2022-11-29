@@ -1,11 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 const Contact = () => {
-  const [formInfo, setFormInfo] = useState({
-    name: "",
-    email: "",
-  });
-
   useEffect(() => {
     const form = document.getElementById("form");
     const result = document.getElementById("result");
@@ -55,6 +50,26 @@ const Contact = () => {
 
   return (
     <main className="container mx-auto animate-[fadein_2s_ease_1]">
+      <header className="max-w-lg mx-auto text-center my-10">
+        <h1 className="font-semibold text-3xl tracking-wide mb-6">
+          LETS GET PLANNING!
+        </h1>
+        <a
+          href="https://calendly.com/simplytogetherevents/60min"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-base p-3 bg-[#0078ff] hover:bg-[#0054b5] active:scale-90 text-white rounded-md"
+        >
+          request an appointment
+        </a>
+      </header>
+
+      <div className="max-w-lg mx-auto text-center">
+        <h2 className="text-black/50 text-2xl tracking-wide font-medium">
+          - OR -
+        </h2>
+      </div>
+
       <div className="max-w-lg mx-auto my-10 bg-white p-5 rounded-lg shadow-lg">
         <div className="text-center">
           <h1 className="my-3 text-3xl font-semibold text-black">Contact Us</h1>
@@ -132,6 +147,29 @@ const Contact = () => {
                 required
                 className="w-full px-3 py-2 placeholder-black/30 border border-black/20 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-300"
               />
+            </div>
+            <div className="mb-6">
+              <label htmlFor="event" className="block mb-2 text-black/40">
+                Event Type
+              </label>
+
+              <select
+                id="event"
+                name="event"
+                required
+                className="w-full px-3 py-2 placeholder-black/30 border border-black/20 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-300"
+              >
+                <option value="" disabled selected>
+                  Choose event type
+                </option>
+                <option value="Event Planning">Event Planning</option>
+                <option value="Event Design">Event Design</option>
+                <option value="Luxury Picnic">Luxury Picnic</option>
+                <option value="Rental">Rental</option>
+                <option value="Event Content Creation">
+                  Event Content Creation
+                </option>
+              </select>
             </div>
             <div className="mb-6">
               <label
