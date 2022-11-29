@@ -9,6 +9,7 @@ import servicePhoto4 from "./servicePhoto4.jpg";
 
 const Services = () => {
   const [width, setWidth] = useState(window.innerWidth);
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
   const handleResize = () => {
     setWidth(window.innerWidth);
   };
@@ -45,6 +46,110 @@ const Services = () => {
       observer.observe(target);
     });
   }, []);
+
+  const changeDisplay = () => {
+    return (
+      <section className="z-50 showPopUp">
+        <div className="navBlur">
+          <article className="rounded-lg overflow-hidden p-6  bg-white absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+            <header className="flex items-center justify-between mb-4">
+              <h1 className="text-lg font-semibold tracking-wider">
+                Luxury Picnic Pricing
+              </h1>
+              <div
+                className="CROSS-ICON  cursor-pointer"
+                onClick={() => setIsPopUpOpen(false)} // change isNavOpen state to false to close the menu
+              >
+                <svg
+                  className="h-8 w-8 "
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </div>
+            </header>
+
+            <div className="overflow-x-scroll">
+              <div className="flex items-center justify-center gap-10 content-center ">
+                <section>
+                  <header className="font-medium">Name</header>
+                  <p className="YOU&I my-2">You & I</p>
+                  <p className="PROPOSAL my-2">Proposal*</p>
+                  <p className="ALL4YOU my-2">All 4 You</p>
+                  <p className="LETS_PARTY my-2">Let's Party</p>
+                  <p className="THE_GATHERING my-2">The Gathering</p>
+                  <p className="ALL_OUT my-2">All Out</p>
+                </section>
+
+                <section>
+                  <header className="font-medium">No. of People</header>
+                  <p className="YOU&I my-2">2</p>
+                  <p className="PROPOSAL my-2">2</p>
+                  <p className="ALL4YOU my-2">3 - 4</p>
+                  <p className="LETS_PARTY my-2">5 - 8</p>
+                  <p className="THE_GATHERING my-2">8 - 12</p>
+                  <p className="ALL_OUT my-2">12 - 20</p>
+                </section>
+
+                <section>
+                  <header className="font-medium">Price</header>
+                  <p className="YOU&I my-2">$255</p>
+                  <p className="PROPOSAL my-2">$425</p>
+                  <p className="ALL4YOU my-2">$300</p>
+                  <p className="LETS_PARTY my-2">$450</p>
+                  <p className="THE_GATHERING my-2">$600</p>
+                  <p className="ALL_OUT my-2">$825</p>
+                </section>
+              </div>
+
+              <p className="text-center text-sm mt-2">
+                additional time: $40 for 30 min, $75 for 1 hr
+              </p>
+            </div>
+
+            <p className="text-sm text-center my-4">
+              All 2 hour picnic experiences include set-up, clean-up, picnic
+              table, floor sheet, floral arrangement, table decor, tableware,
+              and a game.
+            </p>
+            <p className="text-xs text-center text-black/50">
+              * Includes 5x7 photo, bouquet of flowers, chocolate covered
+              strawberries, bottle of champagne & 2 glasses (must be 21 or
+              older). Inquire for marquee MARRY ME or LOVE letters
+            </p>
+          </article>
+        </div>
+
+        <style>{`
+            .navBlur {
+                display: block;
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                backdrop-filter: blur(4px);
+                background-color: hsla(0,0%,7%,.36);
+            }
+
+            .showPopUp {
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 100vh;
+                top: 0;
+                left: 0;
+                z-index: 50;
+            `}</style>
+      </section>
+    );
+  };
 
   return (
     <main>
@@ -222,13 +327,16 @@ const Services = () => {
               theme of your choice.
             </p>
             <div className="mt-2">
-              <Link
-                to="/"
+              <button
+                onClick={() => {
+                  setIsPopUpOpen(true);
+                }}
                 className="sm:font-medium md:text-base sm:text-sm xs:text-xs text-[10px] p-2 sm:p-3 bg-[#A4133C] hover:bg-[#800F2F] active:scale-90  text-white rounded-md"
               >
                 view pricing
-              </Link>
+              </button>
             </div>
+            {isPopUpOpen && changeDisplay()}
           </div>
         </article>
 
