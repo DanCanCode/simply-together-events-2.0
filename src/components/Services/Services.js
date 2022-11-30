@@ -51,8 +51,8 @@ const Services = () => {
     return (
       <section className="z-50 showPopUp">
         <div className="navBlur">
-          <article className="rounded-lg overflow-hidden p-6  bg-white absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-            <header className="flex items-center justify-between mb-4">
+          <article className="rounded-lg overflow-hidden p-6  bg-white container mx-auto">
+            <header className="flex items-center justify-between mb-4 mx-auto">
               <h1 className="text-lg font-semibold tracking-wider">
                 Luxury Picnic Pricing
               </h1>
@@ -75,8 +75,8 @@ const Services = () => {
               </div>
             </header>
 
-            <div className="overflow-x-scroll">
-              <div className="flex items-center justify-center gap-10 content-center ">
+            <div className="overflow-x-scroll ">
+              <div className="flex items-center justify-center gap-14 content-center">
                 <section>
                   <header className="font-medium">Name</header>
                   <p className="YOU&I my-2">You & I</p>
