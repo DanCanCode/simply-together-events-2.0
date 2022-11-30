@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import contantHeader from "./contact.png";
 
 const Contact = () => {
   useEffect(() => {
@@ -49,11 +50,14 @@ const Contact = () => {
   }, []);
 
   return (
-    <main className="container mx-auto animate-[fadein_2s_ease_1]">
-      <header className="max-w-lg mx-auto text-center my-10">
-        <h1 className="font-semibold text-3xl tracking-wide mb-6">
-          LETS GET PLANNING!
-        </h1>
+    <main className="container mx-auto">
+      <header className="max-w-lg mx-auto text-center grid grid-cols-1 gap-3 place-items-center my-10">
+        <img
+          className="animate-[fadein_2s_ease_1] md:w-72 sm:w-56 w-44"
+          src={contantHeader}
+          alt="lets get planning"
+        />
+
         <a
           href="https://calendly.com/simplytogetherevents/60min"
           target="_blank"
