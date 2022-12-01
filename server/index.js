@@ -1,19 +1,22 @@
 require("dotenv").config();
-const path = require("path");
 const express = require("express");
-const app = express();
+const bodyParser = require("body-parser");
+const path = require("path");
+const mongoose = require("mongoose");
+const cors = require("cors");
 // const { db } = require("./database");
 // const seed = require("../seed");
 
+const app = express();
+
 // Include our routes!
 app.use("/api", require("./routes"));
-app.use("/api/albums", require("./routes/albums"));
+app.use("/api/gallery", require("./routes/gallery"));
 
 // Body parsing middleware
-app.use(express.json({ limit: "30mb" }));
-app.use(express.urlencoded({ limit: "30mb", extended: true }));
-
-app.use(express.static("./"));
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
+app.use(cors());
 
 // Send index.html for any other requests
 app.get("*", (req, res) => {
@@ -38,8 +41,20 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).send(err.message || "Internal server error.");
 });
 
-// Server port
+// Server port and Mongoose DB connection
 const PORT = process.env.PORT || 1337;
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() =>
+    app.listen(PORT, () => {
+      console.log(`Server running on port: http://localhost:${PORT}`);
+    })
+  )
+  .catch((error) => console.log(error.message));
+
 // const init = async () => {
 //   try {
 //     if (process.env.SEED === "true") {
@@ -57,6 +72,3 @@ const PORT = process.env.PORT || 1337;
 // };
 
 // init();
-app.listen(PORT, () => {
-  console.log(`Server running on port: http://localhost:${PORT}`);
-});

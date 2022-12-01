@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import albumsReducer from "./redux-store/albums";
+import galleriesReducer from "./redux-store/galleries";
 
 const reducer = combineReducers({
-  albums: albumsReducer,
+  galleries: galleriesReducer,
 });
 const store = configureStore({ reducer }, applyMiddleware(thunk));
 
