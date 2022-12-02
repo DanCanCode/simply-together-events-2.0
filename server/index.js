@@ -4,19 +4,17 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const mongoose = require("mongoose");
 const cors = require("cors");
-// const { db } = require("./database");
-// const seed = require("../seed");
 
 const app = express();
-
-// Include our routes!
-app.use("/api", require("./routes"));
-app.use("/api/gallery", require("./routes/gallery"));
 
 // Body parsing middleware
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+
+// Include our routes!
+app.use("/api", require("./routes"));
+app.use("/api/gallery", require("./routes/gallery"));
 
 // Send index.html for any other requests
 app.get("*", (req, res) => {
@@ -54,21 +52,3 @@ mongoose
     })
   )
   .catch((error) => console.log(error.message));
-
-// const init = async () => {
-//   try {
-//     if (process.env.SEED === "true") {
-//       await seed();
-//     } else {
-//       db.sync().then(() => {
-//         app.listen(PORT, () => {
-//           console.log(`Server running on port: http://localhost:${PORT}`);
-//         });
-//       });
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-// init();

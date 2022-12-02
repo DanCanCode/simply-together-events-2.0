@@ -46,8 +46,12 @@ const deleteGallery = (gallery) => {
 // THUNKS
 export const fetchGalleries = () => {
   return async (dispatch) => {
-    const { data } = await axios.get("/api/gallery");
-    dispatch(setGalleries(data));
+    try {
+      const { data } = await axios.get("/api/gallery");
+      dispatch(setGalleries(data));
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 

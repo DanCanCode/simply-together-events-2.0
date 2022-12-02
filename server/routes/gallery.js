@@ -1,7 +1,9 @@
 const router = require("express").Router();
-const { getGalleries } = require("../controllers/gallery");
+const { getGalleries, createGallery } = require("../controllers/gallery");
 
 router.get("/", getGalleries);
+
+router.post("/", createGallery);
 
 // router.get("/:id", async (req, res, next) => {
 //   try {

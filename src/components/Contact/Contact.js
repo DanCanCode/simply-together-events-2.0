@@ -160,10 +160,11 @@ const Contact = () => {
               <select
                 id="event"
                 name="event"
+                defaultValue={"default"}
                 required
                 className="w-full px-3 py-2 placeholder-black/30 border border-black/20 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-300"
               >
-                <option value="" disabled selected>
+                <option value="default" disabled>
                   Choose event type
                 </option>
                 <option value="Event Planning">Event Planning</option>
