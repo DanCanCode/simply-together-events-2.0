@@ -1,117 +1,42 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { createGallery } from "../../redux-store/galleries";
-import FileBase from "react-file-base64";
+import React from "react";
+import { useSelector } from "react-redux";
 import headText from "./galleries.png";
+// import Form from '../Form'
 
 const Gallery = () => {
-  const [galleryData, setGalleryData] = useState({
-    title: "",
-    headingPhoto: "",
-    coverPhoto: "",
-    images: [],
-  });
   const galleries = useSelector((state) => state.galleries);
   console.log(galleries);
 
-  const dispatch = useDispatch();
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(createGallery(galleryData));
+  const handleClick = (title) => {
+    console.log(`you clicked ${title}`);
   };
 
   return (
     <main>
-      <header className="grid grid-cols-1 place-items-center mt-10 mx-12">
+      <header className="grid grid-cols-1 gap-3 place-items-center mt-10 mx-12">
         <img
           src={headText}
           alt="galleries"
           className="animate-[fadein_2s_ease_1] md:w-72 sm:w-56 w-44"
         />
+        <h1 className="text-center text-xs xs:text-sm sm:text-base">
+          view photos from past events
+        </h1>
       </header>
 
-      <section id="FORM" className="container mx-auto">
-        <form id="form" onSubmit={handleSubmit}>
-          <div className="mb-6">
-            <label htmlFor="title" className="block mb-2 text-sm text-black/40">
-              Title
-            </label>
-            <input
-              type="text"
-              name="title"
-              id="title"
-              placeholder="John Doe's Wedding"
-              value={galleryData.title}
-              onChange={(e) =>
-                setGalleryData({ ...galleryData, title: e.target.value })
-              }
-              required
-              className="w-full px-3 py-2 placeholder-black/30 border border-black/20 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-300"
-            />
-          </div>
-
-          <div className="HEADING_PHOTO mb-6">
-            <label
-              htmlFor="headingPhoto"
-              className="block mb-2 text-sm text-black/40"
+      <section className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 place-items-center gap-6 my-10 mx-4 sm:mx-10">
+        {galleries?.map((gallery) => {
+          return (
+            <div
+              key={gallery._id}
+              className="cursor-pointer drop-shadow-lg hover:scale-90 transition duration-300 ease-in-out"
+              onClick={() => handleClick(gallery.title)}
             >
-              Heading Photo
-            </label>
-            <FileBase
-              type="file"
-              multiple={false}
-              onDone={({ base64 }) =>
-                setGalleryData({ ...galleryData, headingPhoto: base64 })
-              }
-            />
-          </div>
-
-          <div className="mb-6">
-            <label
-              htmlFor="coverPhoto"
-              className="block mb-2 text-sm text-black/40"
-            >
-              Cover Photo
-            </label>
-            <FileBase
-              type="file"
-              multiple={false}
-              onDone={({ base64 }) =>
-                setGalleryData({ ...galleryData, coverPhoto: base64 })
-              }
-            />
-          </div>
-
-          <div className="mb-6">
-            <label
-              htmlFor="images"
-              className="block mb-2 text-sm text-black/40"
-            >
-              images
-            </label>
-            <FileBase
-              type="file"
-              multiple={true}
-              onDone={({ base64 }) =>
-                setGalleryData({ ...galleryData, images: base64 })
-              }
-            />
-          </div>
-
-          <div className="mb-6">
-            <button
-              type="submit"
-              className="w-full px-3 py-4 text-white tracking-wide font-medium rounded-md bg-[#A4133C] hover:bg-[#800F2F] active:scale-90 focus:outline-none"
-            >
-              Submit
-            </button>
-          </div>
-          <p className="text-base text-center text-gray-500" id="result"></p>
-        </form>
+              <img src={gallery.coverPhoto} alt={gallery.title} />
+            </div>
+          );
+        })}
       </section>
-
-      <section></section>
     </main>
   );
 };
