@@ -11,17 +11,27 @@ const SingleGallery = () => {
     dispatch(fetchSingleGallery(galleryId));
   }, [dispatch]);
 
-  const gallery = useSelector((state) => state.singleGallery);
-  console.log(gallery);
+  const singleGallery = useSelector((state) => state.singleGallery);
+  const galleryImages = singleGallery.images;
   return (
     <main>
       <header className="grid grid-cols-1 gap-3 place-items-center mt-10 mx-12">
         <img
-          src={gallery?.headingPhoto}
+          src={singleGallery?.headingPhoto}
           alt="galleries"
           className="animate-[fadein_2s_ease_1] md:w-72 sm:w-56 w-44"
         />
       </header>
+
+      <section className="grid grid-cols-3 gap-3">
+        {galleryImages?.map((image) => {
+          return (
+            <div className="">
+              <img src={image} alt="" />
+            </div>
+          );
+        })}
+      </section>
     </main>
   );
 };
