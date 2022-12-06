@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { fetchSingleGallery } from "../../redux-store/singleGallery";
 import { useSelector, useDispatch } from "react-redux";
+import Form from "../Form";
 
 const SingleGallery = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const SingleGallery = () => {
 
   const singleGallery = useSelector((state) => state.singleGallery);
   const galleryImages = singleGallery.images;
+  console.log(galleryImages);
   return (
     <main>
       <header className="grid grid-cols-1 gap-3 place-items-center mt-10 mx-12">
@@ -22,6 +24,8 @@ const SingleGallery = () => {
           className="animate-[fadein_2s_ease_1] md:w-72 sm:w-56 w-44"
         />
       </header>
+
+      <Form ga={singleGallery} id={galleryId} />
 
       <section className="grid grid-cols-3 gap-3">
         {galleryImages?.map((image) => {

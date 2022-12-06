@@ -56,7 +56,7 @@ export const createGallery = (gallery) => {
 
 export const updatedGallery = (gallery) => {
   return async (dispatch) => {
-    const { data } = await axios.put(`/api/gallery/${gallery.id}`, gallery);
+    const { data } = await axios.put(`/api/gallery/${gallery._id}`, gallery);
     dispatch(updateGallery(data));
   };
 };

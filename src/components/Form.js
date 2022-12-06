@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createGallery } from "../../redux-store/galleries";
+import { createGallery, updatedGallery } from "../redux-store/galleries";
 import FileBase from "react-file-base64";
 
-const Form = () => {
+const Form = (props) => {
   const [galleryData, setGalleryData] = useState({
+    _id: props.id,
     title: "",
     headingPhoto: "",
     coverPhoto: "",
@@ -13,7 +14,7 @@ const Form = () => {
   const dispatch = useDispatch();
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(createGallery(galleryData));
+    dispatch(updatedGallery(galleryData));
     setGalleryData({
       title: "",
       headingPhoto: "",
@@ -38,7 +39,6 @@ const Form = () => {
             onChange={(e) =>
               setGalleryData({ ...galleryData, title: e.target.value })
             }
-            required
             className="w-full px-3 py-2 placeholder-black/30 border border-black/20 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-300"
           />
         </div>
@@ -82,9 +82,10 @@ const Form = () => {
           <FileBase
             type="file"
             multiple={true}
-            onDone={({ base64 }) =>
-              setGalleryData({ ...galleryData, images: base64 })
-            }
+            onDone={(base64) => {
+              console.log(base64);
+              setGalleryData({ ...galleryData, images: base64 });
+            }}
           />
         </div>
 

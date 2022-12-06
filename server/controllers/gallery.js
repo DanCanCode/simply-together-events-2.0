@@ -18,6 +18,21 @@ const getSingleGallery = async (req, res, next) => {
   }
 };
 
+const updateGallery = async (req, res, next) => {
+  try {
+    const newArr = req.body.images.map((image) => {
+      return image.base64;
+    });
+    console.log(newArr);
+    const singleGallery = await Gallery.findByIdAndUpdate(req.params.id, {
+      images: newArr,
+    });
+    res.json(singleGallery);
+  } catch (error) {
+    next(error);
+  }
+};
+
 const createGallery = async (req, res, next) => {
   try {
     const createdGallery = await new Gallery(req.body);
@@ -37,5 +52,6 @@ const createGallery = async (req, res, next) => {
 module.exports = {
   getGalleries,
   getSingleGallery,
+  updateGallery,
   createGallery,
 };
