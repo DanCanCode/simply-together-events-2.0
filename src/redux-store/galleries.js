@@ -3,7 +3,6 @@ import axios from "axios";
 // ACTION TYPES
 const ADD_GALLERY = "ADD_GALLERY";
 const SET_GALLERIES = "SET_GALLERIES";
-const SET_SINGLE_GALLERY = "SET_SINGLE_GALLERY";
 const UPDATE_GALLERY = "UPDATE_GALLERY";
 const DELETE_GALLERY = "DELETE_GALLERY";
 
@@ -12,13 +11,6 @@ const setGalleries = (galleries) => {
   return {
     type: SET_GALLERIES,
     galleries,
-  };
-};
-
-const setSingleGallery = (gallery) => {
-  return {
-    type: SET_SINGLE_GALLERY,
-    gallery,
   };
 };
 
@@ -55,13 +47,6 @@ export const fetchGalleries = () => {
   };
 };
 
-export const fetchSingleGallery = (id) => {
-  return async (dispatch) => {
-    const { data } = await axios.get(`/api/gallery/${id}`);
-    dispatch(setSingleGallery(data));
-  };
-};
-
 export const createGallery = (gallery) => {
   return async (dispatch) => {
     const { data } = await axios.post("/api/gallery", gallery);
@@ -88,8 +73,6 @@ export default function galleriesReducer(state = [], action) {
   switch (action.type) {
     case SET_GALLERIES:
       return action.galleries;
-    case SET_SINGLE_GALLERY:
-      return action.gallery;
     case ADD_GALLERY:
       return [...state, action.gallery];
     case UPDATE_GALLERY:

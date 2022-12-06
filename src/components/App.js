@@ -7,6 +7,7 @@ import Homepage from "./Homepage/Homepage";
 import About from "./About/About";
 import Services from "./Services/Services";
 import Gallery from "./Gallery/Gallery";
+import SingleGallery from "./Gallery/SingleGallery";
 import Collaboration from "./Collaboration/Colaboration";
 import Contact from "./Contact/Contact";
 import Navbar from "./Navbar";
@@ -27,6 +28,7 @@ const App = () => {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/services" element={<Services />} />
         <Route exact path="/gallery" element={<Gallery />} />
+        <Route exact path="/gallery/:id" element={<SingleGallery />} />
         <Route exact path="/collaboration" element={<Collaboration />} />
         <Route exact path="/contact" element={<Contact />} />
       </Routes>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import headText from "./galleries.png";
 // import Form from '../Form'
@@ -6,10 +7,6 @@ import headText from "./galleries.png";
 const Gallery = () => {
   const galleries = useSelector((state) => state.galleries);
   console.log(galleries);
-
-  const handleClick = (title) => {
-    console.log(`you clicked ${title}`);
-  };
 
   return (
     <main>
@@ -27,13 +24,13 @@ const Gallery = () => {
       <section className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 place-items-center gap-6 my-10 mx-4 sm:mx-10">
         {galleries?.map((gallery) => {
           return (
-            <div
+            <Link
               key={gallery._id}
               className="cursor-pointer drop-shadow-lg hover:scale-90 transition duration-300 ease-in-out"
-              onClick={() => handleClick(gallery.title)}
+              to={`/gallery/${gallery._id}`}
             >
               <img src={gallery.coverPhoto} alt={gallery.title} />
-            </div>
+            </Link>
           );
         })}
       </section>

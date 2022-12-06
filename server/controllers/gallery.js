@@ -11,17 +11,8 @@ const getGalleries = async (req, res, next) => {
 
 const getSingleGallery = async (req, res, next) => {
   try {
-    const singleGallery = await Gallery.findById(
-      req.params.id,
-      function (err, docs) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Result : ", docs);
-        }
-      }
-    );
-    res.status(200).send(singleGallery);
+    const singleGallery = await Gallery.findOne({ _id: req.params.id });
+    res.status(200).json(singleGallery);
   } catch (error) {
     next(error);
   }
