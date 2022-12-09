@@ -33,6 +33,7 @@ const SingleGallery = () => {
             {images.map((item) => {
               return (
                 <img
+                  loading="lazy"
                   className="w-52 sm:w-64 md:w-80"
                   key={item.id}
                   src={item.src}

@@ -35,7 +35,11 @@ const Gallery = () => {
           to={`/gallery/david-miranda-wedding`}
           state={{ items: 9 }}
         >
-          <img src={cover1} alt="David + Miranda Wedding Gallery" />
+          <img
+            loading="lazy"
+            src={cover1}
+            alt="David + Miranda Wedding Gallery"
+          />
         </Link>
 
         <Link
@@ -43,7 +47,11 @@ const Gallery = () => {
           to={`/gallery/nick-selena-engagement`}
           state={{ items: 17 }}
         >
-          <img src={cover2} alt="Nick + Selena Engagement Party" />
+          <img
+            loading="lazy"
+            src={cover2}
+            alt="Nick + Selena Engagement Party"
+          />
         </Link>
 
         <Link
@@ -51,7 +59,7 @@ const Gallery = () => {
           to={`/gallery/james-wes-baptism`}
           state={{ items: 17 }}
         >
-          <img src={cover3} alt="James Wes Baptism" />
+          <img loading="lazy" src={cover3} alt="James Wes Baptism" />
         </Link>
 
         <Link
@@ -59,7 +67,11 @@ const Gallery = () => {
           to={`/gallery/colin-jeanine-gender-reveal`}
           state={{ items: 13 }}
         >
-          <img src={cover4} alt="Colin + Jeanine Gender Reveal" />
+          <img
+            loading="lazy"
+            src={cover4}
+            alt="Colin + Jeanine Gender Reveal"
+          />
         </Link>
 
         <Link
@@ -67,7 +79,7 @@ const Gallery = () => {
           to={`/gallery/giovannis-dedication`}
           state={{ items: 12 }}
         >
-          <img src={cover5} alt="Giovanni's Dedication" />
+          <img loading="lazy" src={cover5} alt="Giovanni's Dedication" />
         </Link>
 
         <Link
@@ -75,7 +87,11 @@ const Gallery = () => {
           to={`/gallery/international-womens-day-gala`}
           state={{ items: 22 }}
         >
-          <img src={cover6} alt="International Women's Day Gala" />
+          <img
+            loading="lazy"
+            src={cover6}
+            alt="International Women's Day Gala"
+          />
         </Link>
 
         <Link
@@ -83,7 +99,7 @@ const Gallery = () => {
           to={`/gallery/valentines-day-picnic`}
           state={{ items: 9 }}
         >
-          <img src={cover7} alt="Valentine's Day Picnic" />
+          <img loading="lazy" src={cover7} alt="Valentine's Day Picnic" />
         </Link>
 
         <Link
@@ -91,7 +107,11 @@ const Gallery = () => {
           to={`/gallery/omar-basma-engagement`}
           state={{ items: 9 }}
         >
-          <img src={cover8} alt="Omar + Basma Engagement Party" />
+          <img
+            loading="lazy"
+            src={cover8}
+            alt="Omar + Basma Engagement Party"
+          />
         </Link>
 
         <Link
@@ -99,7 +119,11 @@ const Gallery = () => {
           to={`/gallery/stephen-alyssa-engagement`}
           state={{ items: 7 }}
         >
-          <img src={cover9} alt="Stephen + Alyssa Engagement Party" />
+          <img
+            loading="lazy"
+            src={cover9}
+            alt="Stephen + Alyssa Engagement Party"
+          />
         </Link>
 
         <Link
@@ -107,7 +131,7 @@ const Gallery = () => {
           to={`/gallery/thanksgiving-picnic`}
           state={{ items: 15 }}
         >
-          <img src={cover10} alt="Thanksgiving Luxury Picnic" />
+          <img loading="lazy" src={cover10} alt="Thanksgiving Luxury Picnic" />
         </Link>
 
         <Link
@@ -115,7 +139,7 @@ const Gallery = () => {
           to={`/gallery/gows-graduation`}
           state={{ items: 7 }}
         >
-          <img src={cover11} alt="Gow's Graduation Party" />
+          <img loading="lazy" src={cover11} alt="Gow's Graduation Party" />
         </Link>
 
         <Link
@@ -123,7 +147,7 @@ const Gallery = () => {
           to={`/gallery/halloween-party`}
           state={{ items: 3 }}
         >
-          <img src={cover12} alt="Halloween Party" />
+          <img loading="lazy" src={cover12} alt="Halloween Party" />
         </Link>
 
         <Link
@@ -131,7 +155,7 @@ const Gallery = () => {
           to={`/gallery/denas-sweet-sixteen`}
           state={{ items: 3 }}
         >
-          <img src={cover13} alt="Dena's Sweet Sixteen" />
+          <img loading="lazy" src={cover13} alt="Dena's Sweet Sixteen" />
         </Link>
       </section>
     </main>
