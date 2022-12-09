@@ -50,8 +50,8 @@ const Services = () => {
   const changeDisplay = () => {
     return (
       <section className="z-50 showPopUp">
-        <div className="navBlur">
-          <article className="rounded-lg overflow-hidden p-6  bg-white container mx-auto">
+        <div className="navBlur relative">
+          <article className="w-[70vw] lg:w-[50vw] rounded-lg overflow-hidden p-6 bg-white  -translate-y-1/2 -translate-x-1/2 absolute top-1/2 left-1/2">
             <header className="flex items-center justify-between mb-4 mx-auto">
               <h1 className="text-lg font-semibold tracking-wider">
                 Luxury Picnic Pricing
@@ -75,43 +75,57 @@ const Services = () => {
               </div>
             </header>
 
-            <div className="overflow-x-scroll ">
-              <div className="flex items-center justify-center gap-14 content-center">
-                <section>
-                  <header className="font-medium">Name</header>
-                  <p className="YOU&I my-2">You & I</p>
-                  <p className="PROPOSAL my-2">Proposal*</p>
-                  <p className="ALL4YOU my-2">All 4 You</p>
-                  <p className="LETS_PARTY my-2">Let's Party</p>
-                  <p className="THE_GATHERING my-2">The Gathering</p>
-                  <p className="ALL_OUT my-2">All Out</p>
-                </section>
+            <table className="table-auto w-full">
+              <thead className="border-b border-black">
+                <tr className="text-left">
+                  <th>Name</th>
+                  <th>No. of People</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
 
-                <section>
-                  <header className="font-medium">No. of People</header>
-                  <p className="YOU&I my-2">2</p>
-                  <p className="PROPOSAL my-2">2</p>
-                  <p className="ALL4YOU my-2">3 - 4</p>
-                  <p className="LETS_PARTY my-2">5 - 8</p>
-                  <p className="THE_GATHERING my-2">8 - 12</p>
-                  <p className="ALL_OUT my-2">12 - 20</p>
-                </section>
+              <tbody>
+                <tr className="bg-black/10">
+                  <td className="YOU&I">You & I</td>
+                  <td className="YOU&I">2</td>
+                  <td className="YOU&I">$255</td>
+                </tr>
 
-                <section>
-                  <header className="font-medium">Price</header>
-                  <p className="YOU&I my-2">$255</p>
-                  <p className="PROPOSAL my-2">$425</p>
-                  <p className="ALL4YOU my-2">$300</p>
-                  <p className="LETS_PARTY my-2">$450</p>
-                  <p className="THE_GATHERING my-2">$600</p>
-                  <p className="ALL_OUT my-2">$825</p>
-                </section>
-              </div>
+                <tr className="">
+                  <td className="PROPOSAL">Proposal*</td>
+                  <td className="PROPOSAL">2</td>
+                  <td className="PROPOSAL">$425</td>
+                </tr>
 
-              <p className="text-center text-sm mt-2">
-                additional time: $40 for 30 min, $75 for 1 hr
-              </p>
-            </div>
+                <tr className="bg-black/10">
+                  <td className="ALL4YOU">All 4 You</td>
+                  <td className="ALL4YOU">3 - 4</td>
+                  <td className="ALL4YOU">$300</td>
+                </tr>
+
+                <tr className="">
+                  <td className="LETS_PARTY">Let's Party</td>
+                  <td className="LETS_PARTY">5 - 8</td>
+                  <td className="LETS_PARTY">$450</td>
+                </tr>
+
+                <tr className="bg-black/10">
+                  <td className="THE_GATHERING">The Gathering</td>
+                  <td className="THE_GATHERING">8 - 12</td>
+                  <td className="THE_GATHERING">$600</td>
+                </tr>
+
+                <tr className="">
+                  <td className="ALL_OUT">All Out</td>
+                  <td className="ALL_OUT">12 - 20</td>
+                  <td className="ALL_OUT">$825</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p className="text-center text-sm mt-4">
+              additional time: $40 for 30 min, $75 for 1 hr
+            </p>
 
             <p className="text-sm text-center my-4">
               All 2 hour picnic experiences include set-up, clean-up, picnic
@@ -363,7 +377,7 @@ const Services = () => {
             </p>
             <div className="mt-2">
               <Link
-                to="/party-rentals"
+                to="/services/party-rentals"
                 className="sm:font-medium md:text-base sm:text-sm xs:text-xs text-[10px] p-2 sm:p-3 bg-[#A4133C] hover:bg-[#800F2F] active:scale-90  text-white rounded-md"
               >
                 party rentals
