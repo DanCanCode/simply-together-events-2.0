@@ -1,38 +1,38 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
-import { fetchSingleGallery } from "../../redux-store/singleGallery";
-import { useSelector, useDispatch } from "react-redux";
-import Form from "../Form";
 
 const SingleGallery = () => {
-  const dispatch = useDispatch();
-  const galleryId = useLocation().pathname.replace("/gallery/", "");
+  const galleryName = useLocation().pathname.replace("/gallery/", "");
+  const imgCount = useLocation().state.items;
+  const images = [];
 
-  useEffect(() => {
-    dispatch(fetchSingleGallery(galleryId));
-  }, [dispatch]);
+  for (let i = 1; i <= imgCount; i++) {
+    images.push({
+      id: i,
+      src: require(`./photos/${galleryName}/${i}.jpg`),
+      alt: i,
+    });
+  }
 
-  const singleGallery = useSelector((state) => state.singleGallery);
-  const galleryImages = singleGallery.images;
-  console.log(galleryImages);
   return (
     <main>
-      <header className="grid grid-cols-1 gap-3 place-items-center mt-10 mx-12">
+      <header className="grid grid-cols-1 gap-3 place-items-center my-10 mx-12">
         <img
-          src={singleGallery?.headingPhoto}
-          alt="galleries"
+          src={require(`./photos/${galleryName}/heading.png`)}
+          alt={galleryName}
           className="animate-[fadein_2s_ease_1] md:w-72 sm:w-56 w-44"
         />
       </header>
 
-      <Form ga={singleGallery} id={galleryId} />
-
-      <section className="grid grid-cols-3 gap-3">
-        {galleryImages?.map((image) => {
+      <section className="flex flex-row flex-wrap justify-center gap-2">
+        {images.map((item) => {
           return (
-            <div className="">
-              <img src={image} alt="" />
-            </div>
+            <img
+              className="w-52 sm:w-64 md:w-80"
+              key={item.id}
+              src={item.src}
+              alt={item.alt}
+            />
           );
         })}
       </section>

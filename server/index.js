@@ -8,8 +8,8 @@ const cors = require("cors");
 const app = express();
 
 // Body parsing middleware
-app.use(bodyParser.json({ limit: "100mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit: "100mb", extended: true }));
+// app.use(bodyParser.json({ limit: "100mb", extended: true }));
+// app.use(bodyParser.urlencoded({ limit: "100mb", extended: true }));
 app.use(cors());
 
 // Include our routes!
