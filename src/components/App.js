@@ -1,6 +1,4 @@
 import React from "react";
-// import { useDispatch } from "react-redux";
-// import { fetchGalleries } from "../redux-store/galleries";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./Homepage/Homepage";
 import About from "./About/About";
@@ -12,14 +10,9 @@ import Collaboration from "./Collaboration/Colaboration";
 import Contact from "./Contact/Contact";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import NotFound from "./NotFound";
 
 const App = () => {
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(fetchGalleries());
-  // }, [dispatch]);
-
   return (
     <BrowserRouter>
       <Navbar />
@@ -36,6 +29,8 @@ const App = () => {
         <Route exact path="/gallery/:name" element={<SingleGallery />} />
         <Route exact path="/collaboration" element={<Collaboration />} />
         <Route exact path="/contact" element={<Contact />} />
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>
