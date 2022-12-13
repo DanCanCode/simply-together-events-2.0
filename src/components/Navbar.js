@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FaInstagram, FaPinterest, FaEnvelope } from "react-icons/fa";
+import { FaInstagram, FaPinterest } from "react-icons/fa";
 import logo from "./logo.png";
 
 const Navbar = () => {
