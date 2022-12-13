@@ -6,7 +6,7 @@ import Services from "./Services/Services";
 import PartyRentals from "./Services/party-rentals/PartyRentals";
 import Gallery from "./Gallery/Gallery";
 import SingleGallery from "./Gallery/SingleGallery";
-import Collaboration from "./Collaboration/Colaboration";
+import Collaboration from "./Collaboration/Collaboration";
 import Contact from "./Contact/Contact";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
