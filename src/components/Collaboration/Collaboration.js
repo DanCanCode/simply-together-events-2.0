@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import backgroundVideo from "./background.mp4";
+//import backgroundVideo from "./background.mp4";
 
 const Collaboration = () => {
   useEffect(() => {
