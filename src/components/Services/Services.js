@@ -283,6 +283,7 @@ const Services = () => {
           <div className="overflow-hidden w-32 xs:w-48 sm:w-64 md:w-80">
             <video
               autoPlay
+              playsinline
               muted
               loop
               className="SLIDE-IN object-cover object-center opacity-0"
