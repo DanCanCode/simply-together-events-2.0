@@ -90,12 +90,12 @@ const Contact = () => {
             <input
               type="hidden"
               name="access_key"
-              value="YOUR_ACCESS_KEY_HERE"
+              value="c78e5d51-84f7-4e47-b2d9-f3650fb19ddb"
             />
             <input
               type="hidden"
               name="subject"
-              value="New Submission from your Website"
+              value="Client Submission from your Website"
             />
             <input
               type="checkbox"
