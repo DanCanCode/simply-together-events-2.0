@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "./homepageText.png";
+import instagram from "./instagram.png";
 import photo0 from "./photo0.jpg";
 import photo1 from "./photo1.jpg";
 import photo2 from "./photo2.jpg";
@@ -9,6 +10,21 @@ import photo4 from "./photo4.jpg";
 import photo5 from "./photo5.jpg";
 
 const Homepage = () => {
+  const [posts, setPosts] = useState([]);
+
+  const getStaticProps = async () => {
+    const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,media_type,permalink&access_token=${process.env.REACT_APP_INSTAGRAM_KEY}`;
+
+    const data = await fetch(url);
+    const feed = await data.json();
+    const posts = feed.data;
+    setPosts(posts);
+  };
+
+  useEffect(() => {
+    getStaticProps();
+  }, []);
+
   return (
     <div>
       <div className="relative overflow-hidden md:h-[65vh] mt-12">
@@ -63,6 +79,58 @@ const Homepage = () => {
           learn more
         </Link>
       </div>
+
+      <div className="my-10 flex justify-center">
+        <div className="animate-bounce bg-slate-800 p-2 w-14 h-14 ring-1 ring-slate-200/20 shadow-lg rounded-full flex items-center justify-center">
+          <svg
+            className="w-8 h-8 text-[#C9184A]"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 place-items-center mt-8 mb-10 mx-12">
+        <img src={instagram} alt="services" className=" md:w-96 sm:w-72 w-64" />
+      </div>
+
+      <section className="relative flex flex-wrap gap-6 justify-center items-center mx-4 md:mx-8">
+        {posts &&
+          posts.map((post) => {
+            console.log(post);
+            return (
+              <a
+                href={post.permalink}
+                className="bg-black w-56 h-56 md:w-80 md:h-80 overflow-hidden rounded-md hover:scale-90 transition duration-300 ease-in-out"
+                key={post.id}
+              >
+                {post.media_type == "VIDEO" ? (
+                  <video
+                    autoPlay
+                    playsInline
+                    muted
+                    loop
+                    className="SLIDE-IN object-cover object-center cursor-pointer"
+                  >
+                    <source src={post.media_url} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img
+                    className="w-full h-full object-cover object-center cursor-pointer"
+                    src={post.media_url}
+                    alt={post.caption}
+                  />
+                )}
+              </a>
+            );
+          })}
+      </section>
     </div>
   );
 };
