@@ -110,7 +110,7 @@ const Homepage = () => {
                 className="bg-black w-56 h-56 md:w-80 md:h-80 overflow-hidden rounded-md hover:scale-90 transition duration-300 ease-in-out"
                 key={post.id}
               >
-                {post.media_type == "VIDEO" ? (
+                {post.media_type === "VIDEO" ? (
                   <video
                     autoPlay
                     playsInline
