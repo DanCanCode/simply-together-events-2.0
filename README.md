@@ -1,6 +1,6 @@
 # Simply Together Events
 
-![Simply Together Events](./public/pageGif.gif)
+![Simply Together Events](./public/steGif.gif)
 
 ## Description
 
