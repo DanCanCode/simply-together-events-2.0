@@ -4,7 +4,7 @@
 
 ## Description
 
-Simply Together Events offers a variety of event services to enhance any upcoming celebration for you and loved ones. They offer event planning, event design, event creation, luxury picnics, and party rentals. This website uses a mobile-first responsive design to ensure a satisfying user experience.
+Transform your events into unforgettable experiences with Simply Together Events. Our user-friendly platform is designed to make event planning a breeze, with interactive tools and a wide range of services. From event planning and design to luxury picnics and party rentals, we have everything you need to make your celebration truly special. With a mobile-first approach, enjoy a seamless experience on any device for a hassle-free event planning process. Let's make your next celebration simply unforgettable.
 
 ## Features
 
