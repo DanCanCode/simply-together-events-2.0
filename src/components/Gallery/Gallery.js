@@ -28,6 +28,7 @@ const Gallery = () => {
 
   useEffect(() => {
     getGalleries();
+    // eslint-disable-next-line
   }, []);
 
   console.log(galleries[0]?.cover.asset._ref);
