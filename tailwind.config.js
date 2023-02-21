@@ -16,6 +16,7 @@ module.exports = {
         slideinRight: "slideinRight 2s ease 1",
         fadein: "fadein 3s ease 1",
         navslide: "navslide .3s ease-out 1",
+        grow: "grow 1s ease-in-out 1",
       },
       keyframes: {
         slideup: {
@@ -41,6 +42,10 @@ module.exports = {
         fadein: {
           "0%": { opacity: 0 },
           "100%": { opacity: 1 },
+        },
+        grow: {
+          "0%": { opacity: 0.3, transform: "scale(.7)" },
+          "100%": { opacity: 1, transform: "scale(1)" },
         },
       },
     },

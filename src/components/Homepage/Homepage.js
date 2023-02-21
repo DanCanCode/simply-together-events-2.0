@@ -17,6 +17,7 @@ const Homepage = () => {
 
     const data = await fetch(url);
     const feed = await data.json();
+    console.log(feed);
     const posts = feed.data;
     setPosts(posts);
   };
